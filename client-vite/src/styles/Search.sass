@@ -25,13 +25,29 @@
 
     @include flex-center
 
+    color: $c2
+
     &-input
       flex-grow: 1
       border: none
+      color: initial
 
 
       &:focus
         outline: none
+  &__help
+    width: 24px
+    height: 24px
+
+    border-radius: 50%
+
+    @include flex-center
+
+    font-size: 26px
+
+    &:hover
+      background-color: $bg5
+      color: $bg1
 
   &__ul
     flex-grow: 1
@@ -41,17 +57,28 @@
     @include flex-list
 
   &__li
-    height: calc(100% / 11)
     width: 100%
+    height: calc(100% / 11)
 
-    border-radius: 5px
+    &-btn
+      height: 100%
+      width: 100%
 
-    display: grid
-    grid-template-columns: 1fr 1fr
-    align-items: center
+      border-radius: 5px
+      border: none
 
-    padding: 5px 0 5px 10px
+      display: grid
+      grid-template-columns: 1fr 1fr
+      align-items: center
 
-    &:hover
-      background-color: darken($bg3, 10%)
-      cursor: pointer
+      padding: 5px 0 5px 10px
+
+      background-color: inherit
+
+      &:hover
+        background-color: darken($bg3, 10%)
+        cursor: pointer
+    &-p
+      text-align: left
+
+

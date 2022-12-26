@@ -11,9 +11,11 @@ export const SearchLi = ({item}: {item: string[]}) => {
     }
 
     return (
-        <li className="search__li" onClick={handleClick}>
-            <p className="search__li-p">{item[1]}</p>
-            <p className="search__li-p">{item[2]}</p>
+        <li className="search__li" >
+            <button className="search__li-btn" onClick={handleClick}>
+                <p className="search__li-p">{item[1]}</p>
+                <p className="search__li-p">{item[2]}</p>
+            </button>
         </li>)
 }
 

@@ -33,6 +33,7 @@ export default () => {
             <div className="search__label">
                 <span className="material-symbols-outlined">search</span>
                 <input ref={refInput} className="search__label-input" onChange={e => handleSearch(e.target.value)} />
+                <span className="material-symbols-outlined search__help" >help</span>
             </div>
             <ul className="search__ul">
                 {suggestions.length ? suggestions.map((item, index) => (
