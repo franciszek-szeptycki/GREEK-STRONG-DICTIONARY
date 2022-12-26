@@ -5,6 +5,7 @@ from flask_cors import CORS, cross_origin
 from flask.helpers import send_from_directory
 
 import database
+import scrapping
 
 app = Flask(__name__, static_folder='web-greek/client-vite/build', static_url_path="")
 CORS(app)
@@ -12,12 +13,20 @@ CORS(app)
 
 @app.route('/api/suggestions', methods=['GET'])
 @cross_origin()
-def index():
+def suggestions():
     value = request.args.get('value')
-
     data, count = database.suggestions(value)
 
     return jsonify(data=data, count=count[0])
+
+
+@app.route('/api/info', methods=['GET'])
+@cross_origin()
+def info():
+    id = request.args.get('id')
+    info, verses = scrapping.index_data(id)
+
+    return jsonify(info=info, verses=verses)
 
 
 @app.route('/')
