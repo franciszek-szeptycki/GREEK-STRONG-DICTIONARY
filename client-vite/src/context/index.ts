@@ -2,7 +2,9 @@ import React, {createContext} from "react";
 import {Action, State} from "./reducers";
 
 export const initialState: State = {
-    LANGUAGE: "polski"
+    DARK_MODE: false,
+    INDEX: 0,
+    MENU: true
 }
 
 export const AppContext = createContext<{state: State, dispatch: React.Dispatch<Action>}>({

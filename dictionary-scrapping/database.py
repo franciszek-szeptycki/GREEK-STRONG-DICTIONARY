@@ -20,15 +20,16 @@ def save_in_db(data):
                 CREATE TABLE strong_dictionary (
                     id integer,
                     latin_alpha string,
-                    greek_alpha string)
+                    greek_alpha string,
+                    length integer)
             ''')
         db.commit()
 
     for item in data:
-        print(item.index_strong, item.greek_word, item.orthodox)
+        print(item.index_strong, item.greek_word, item.orthodox, item.length)
 
         cursor.execute(f'''
-            INSERT INTO strong_dictionary (id, latin_alpha, greek_alpha) VALUES ({item.index_strong}, "{item.greek_word}", "{item.orthodox}")
+            INSERT INTO strong_dictionary (id, latin_alpha, greek_alpha, length) VALUES ({item.index_strong}, "{item.greek_word}", "{item.orthodox}", {item.length})
         ''')
 
         db.commit()

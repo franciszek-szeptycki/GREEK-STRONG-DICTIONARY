@@ -1,19 +1,21 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
-import json
+from flask_cors import CORS
 
-import sqlite3
-import os
-
-current_directory = os.path.dirname(os.path.abspath(__file__))
+import database
 
 app = Flask(__name__)
+CORS(app)
 
 
-@app.route('/', methods=['GET'])
-def init():
-    return "haha"
+@app.route('/api/suggestions', methods=['GET'])
+def suggestions():
+    value = request.args.get('value')
+
+    data, count = database.suggestions(value)
+
+    return jsonify(data=data, count=count[0])
 
 
 if __name__ == '__main__':

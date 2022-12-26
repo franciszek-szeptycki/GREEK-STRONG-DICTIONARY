@@ -1,25 +1,29 @@
-import Header from "./layout/Header";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dictionary from "./pages/Dictionary";
-import Top1000 from "./pages/Top1000";
-import Info from "./pages/Info";
-// import "./App.sass"
+import SearchEngine from "./components/Search";
+import {AppContext} from "./context";
+import {useContext} from "react";
+import "./styles/App.sass"
+import Panel from "./components/Panel";
+import Spinner from "./components/Spinner";
 
 const App = () => {
 
-return (
-    <div className="App">
-        <BrowserRouter>
-            <Header/>
-            <main>
-                <Routes>
-                    <Route path="/" element={<Dictionary/>}/>
-                    <Route path="/najczestsze-slowa" element={<Top1000/>}/>
-                    <Route path="/info" element={<Info/>}/>
-                </Routes>
+    const {state} = useContext(AppContext)
+
+    return (
+        <div className={`App ${state.DARK_MODE ? "dark--theme" : "light--theme"}`}>
+            <Panel/>
+            <aside className={`App__aside ${state.INDEX > 0 ? state.MENU ? "" : "hidden" : ""}`}>
+                <SearchEngine/>
+            </aside>
+            <main className="App__main">
+                <Spinner/>
+                {state.INDEX > 0 && <iframe
+                    src={`http://biblia-online.pl/Slownik/Biblijny/JamesStrongGreek/Strong/G${state.INDEX}`}
+                    height="100%"
+                    width="100%"
+                />}
             </main>
-        </BrowserRouter>
-    </div>
+        </div>
 )}
 
 export default App

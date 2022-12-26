@@ -23,6 +23,7 @@ class Index:
         self.index_strong = index_strong[1:]
         self.greek_word = greek_to_latin(greek_word)
         self.orthodox = greek_word
+        self.length = len(greek_word)
 
     def __str__(self):
         return f'{self.index_strong} : "{self.greek_word}" / "{self.orthodox}"'

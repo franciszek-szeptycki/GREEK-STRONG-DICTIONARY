@@ -1,0 +1,28 @@
+@import "var"
+
+
+.panel
+  position: fixed
+  top: 20px
+  right: 30px
+  z-index: 2
+
+  &__menu
+    border: none
+    border-radius: 10px
+
+    @include flex-center
+
+    span
+      font-size: 40px
+
+    &:hover
+      background-color: darken($bg1, 7%)
+      cursor: pointer
+
+.panel.hidden
+  opacity: 0
+
+@media (min-width: 1000px)
+  .panel
+    display: none

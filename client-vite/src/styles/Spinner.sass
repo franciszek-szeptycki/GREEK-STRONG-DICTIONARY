@@ -1,0 +1,31 @@
+@import "var"
+
+
+.spinner
+  width: 10vh
+  height: 10vh
+
+  position: absolute
+  top: calc(50% - 5vh)
+  left: calc(50% - 5vh)
+
+  border-radius: 5px
+
+  background-color: $bg5
+
+  animation: 1.5s spinner-move infinite linear
+
+.spinner.moved
+  left: calc(50% - 5vh + 225px)
+
+@keyframes spinner-move
+  0%
+    transform: rotateX(0) rotateY(0)
+  50%
+    transform: rotateX(0) rotateY(180deg)
+  100%
+    transform: rotateX(180deg) rotateY(180deg)
+
+@media (min-width: 1000px)
+  .spinner.moved
+    left: calc(50% - 5vh)

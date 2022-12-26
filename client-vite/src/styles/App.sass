@@ -1,0 +1,48 @@
+@import "var"
+
+.App
+  width: 100vw
+  height: 100vh
+
+  background-color: $bg1
+  color: $c1
+
+  &__aside
+    width: 100vw
+    height: 100vh
+
+    max-width: 450px
+
+    position: fixed
+    top: 0
+    left: -0%
+
+    z-index: 1
+
+    background-color: $bg6
+
+    @include flex-center
+
+  &__aside.hidden
+    left: -100%
+
+  &__main
+    width: 100%
+    height: 100%
+
+    position: relative
+    z-index: 0
+
+    iframe
+      position: absolute
+      top: 0
+      left: 0
+      border: none
+      //z-index: 1
+
+@media (min-width: 1000px)
+  .App
+    display: grid
+    grid-template-columns: 450px auto
+    &__aside
+      position: static
