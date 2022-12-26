@@ -2,7 +2,7 @@ import sqlite3
 
 
 def db_connect():
-    db = sqlite3.connect('../strong-dict.db')
+    db = sqlite3.connect('./strong-dict.db')
     cursor = db.cursor()
     return db, cursor
 

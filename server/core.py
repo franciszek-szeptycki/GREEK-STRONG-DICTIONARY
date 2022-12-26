@@ -1,10 +1,18 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+import os
 
 import database
 
-app = Flask(__name__, static_folder='web-greek', static_url_path="/client-vite/test")
+app = Flask(__name__, static_folder='dist', static_url_path='/dist')
+# app.debug = os.environ.get('DEBUG', default=False)
+
+
+@app.route('/')
+def run():
+    return app.send_static_file('index.html')
+
 
 @app.route('/api/suggestions', methods=['GET'])
 def index():
