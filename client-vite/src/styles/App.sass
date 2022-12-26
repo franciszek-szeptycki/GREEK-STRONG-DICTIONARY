@@ -3,7 +3,7 @@
 .App
   width: 100vw
   height: 100vh
-  overflow: hidden
+  overflow-y: scroll
 
   background-color: $bg1
   color: $c1
@@ -34,12 +34,13 @@
     position: relative
     z-index: 0
 
-    iframe
+    &-placeholder
       position: absolute
-      top: 0
-      left: 0
-      border: none
-      //z-index: 1
+      top: calc(50% - 5vh)
+      left: calc(50% - 5vh)
+
+    &-placeholder.moved
+      left: calc(50% - 5vh + 225px)
 
 @media (min-width: 1000px)
   .App
@@ -47,3 +48,9 @@
     grid-template-columns: 450px auto
     &__aside
       position: static
+
+    &__main
+      &-placeholder.moved
+        left: calc(50% - 5vh)
+
+

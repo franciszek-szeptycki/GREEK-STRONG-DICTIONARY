@@ -4,6 +4,7 @@ import {useContext} from "react";
 import "./styles/App.sass"
 import Panel from "./components/Panel";
 import Spinner from "./components/Spinner";
+import Dictionary from "./components/Dictionary";
 
 const App = () => {
 
@@ -16,12 +17,10 @@ const App = () => {
                 <SearchEngine/>
             </aside>
             <main className="App__main">
-                <Spinner/>
-                {state.INDEX > 0 && <iframe
-                    src={`http://biblia-online.pl/Slownik/Biblijny/JamesStrongGreek/Strong/G${state.INDEX}`}
-                    height="100%"
-                    width="100%"
-                />}
+                {state.INDEX > 0 ?
+                    (<Dictionary/>) :
+                    (<p className={`App__main-placeholder ${state.INDEX > 0 ? "" : "moved"}`}>chose a word</p>)
+                }
             </main>
         </div>
 )}

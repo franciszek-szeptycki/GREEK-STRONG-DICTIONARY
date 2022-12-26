@@ -26,8 +26,6 @@ export default () => {
         setSuggestionsCounter(value ? data.count : 0)
     }
 
-    console.log(suggestions, suggestionsCounter)
-
     return (
         <div className="search" >
             <div className="search__label">

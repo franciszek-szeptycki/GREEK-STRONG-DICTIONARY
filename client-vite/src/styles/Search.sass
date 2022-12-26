@@ -28,13 +28,17 @@
     color: $c2
 
     &-input
+      width: 0
       flex-grow: 1
-      border: none
-      color: initial
 
+      border: none
+
+      color: initial
+      background-color: transparent
 
       &:focus
         outline: none
+
   &__help
     width: 24px
     height: 24px
@@ -76,7 +80,7 @@
       background-color: inherit
 
       &:hover
-        background-color: darken($bg3, 10%)
+        background-color: darken($bg1, 10%)
         cursor: pointer
     &-p
       text-align: left
