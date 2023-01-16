@@ -29,7 +29,7 @@ export default () => {
 
     if (loading) return <Spinner/>
     else if (info && verses) return (
-        <div className="dictionary" >
+        <div className="dictionary" style={{overflowY: (!loading && info && verses) ? "scroll" : "hidden"}} >
             <div className="row row-1" >
                 <Row data={["original word", info.orthodox, "pronunciation", info.pronunciation]}/>
             </div>

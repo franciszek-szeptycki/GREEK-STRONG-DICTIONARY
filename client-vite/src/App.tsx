@@ -18,6 +18,7 @@ const App = () => {
             </aside>
             <main className="App__main">
                 {state.INDEX > 0 ?
+                    // @ts-ignore
                     (<Dictionary/>) :
                     (<p className={`App__main-placeholder ${state.INDEX > 0 ? "" : "moved"}`}>chose a word</p>)
                 }
