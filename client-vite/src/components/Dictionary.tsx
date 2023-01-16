@@ -11,20 +11,24 @@ export default () => {
 
     const [info, setInfo] = useState<InfoType>()
     const [verses, setVerses] = useState<VersesType[]>()
+    const [loading, setLoading] = useState(true)
 
     const loadInfo = useQuery('load-info', () => instance.get(`/info?id=${state.INDEX}`), {
         onSuccess: ({data} : {data: DictionaryType}) => {
             setInfo(data.info)
             setVerses(data.verses)
+            setLoading(false)
         }
     })
 
     useEffect(() => {
         loadInfo.refetch()
+        setLoading(true)
     }, [state.INDEX])
 
-    if (!verses || !info) return <Spinner/>
-    else return (
+
+    if (loading) return <Spinner/>
+    else if (info && verses) return (
         <div className="dictionary" >
             <div className="row row-1" >
                 <Row data={["original word", info.orthodox, "pronunciation", info.pronunciation]}/>
