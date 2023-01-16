@@ -7,7 +7,7 @@ from flask.helpers import send_from_directory
 import database
 import scrapping
 
-app = Flask(__name__, static_folder='web-greek/client-vite/build', static_url_path="")
+app = Flask(__name__, static_folder='dist', static_url_path="")
 CORS(app)
 
 
